@@ -1,5 +1,4 @@
 .test.cpp.un~
 .vscode/
-.test.exe
-.test.cpp
+.test
 *.exe
