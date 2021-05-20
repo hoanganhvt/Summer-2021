@@ -32,7 +32,6 @@ int equalChoco(int chocos[],int N){
 }
 int main(){
 	int N;
-	cin >> t;
 	cin >> N;
 	const int Ns = N;
 	int arr[Ns];
