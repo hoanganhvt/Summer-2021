@@ -46,3 +46,5 @@ int main(){
 	}
 	cout << equalChoco(arr,N) << endl;
 }
+
+//perfect
