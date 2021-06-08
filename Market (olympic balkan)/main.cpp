@@ -3,14 +3,18 @@ using namespace std;
 
 int arr[10000];
 
-bool solve(int i,int S){
+int solve(int i,int S){
     if(S == 0){
-        return true;
+        return 1;
     }
+
     if(i == 0){
-        return false;
+        return 0;
     }
-    return (solve(i-1,S-arr[i-1]) || solve(i-1,S+arr[i-1]));
+
+    int included = (arr[i] <= S) ? solve(i-1,S-arr[i-1]) : 0;
+    int excluded = solve(i-1,S);
+    return included + excluded;
 }
 int main(){
     int N,S;
@@ -18,6 +22,6 @@ int main(){
     for(int i = 0; i < N;i++){
         cin >> arr[i];
     }
-    cout  << solve(N,S) << endl;
+    cout << solve(N,S) << endl;
     system("pause");
 }
