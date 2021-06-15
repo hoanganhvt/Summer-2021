@@ -1,0 +1,1 @@
+hay nho rang voi 2^0+2^1 + 2^2 + ... +2^n + d co the tao ra moi so tu 1 toi A
