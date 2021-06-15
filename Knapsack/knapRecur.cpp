@@ -19,4 +19,5 @@ int main(){
         cin >> Weight[i] >> Value[i];
     }
     cout << solve(W,N) << endl;
+    system("pause");
 }

@@ -17,11 +17,11 @@ int maxGold(int m,int n){
         }
     }
 
-    int maxVal = goldMine[0][0];
+    int maxSum = goldMine[0][0];
     for(int i = 0; i < m;i++){
-        maxVal  = max(gold[0][i],maxVal);
+        maxSum  = max(gold[0][i],maxSum);
     }
-    return maxVal;
+    return maxSum;
 }
 int main(){
 }
