@@ -12,6 +12,9 @@ int solve(int i,int m){
 	int b = (i > m) ? solve(i-1-m,m) : 0;
 	return 2*a - b;
 }
+
+	}
+}
 int main(){
 	int N,M;
 	cin >> N >> M;

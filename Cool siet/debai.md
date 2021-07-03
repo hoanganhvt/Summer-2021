@@ -1,0 +1,1 @@
+Chia 1 dãy n phần tử sao cho mỗi dãy con chỉ được phép chứa tối đa m phần tử
