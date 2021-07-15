@@ -3,7 +3,7 @@
 using namespace std;
 
 int solve(int arr[],int N,int S){
-    int minSum = 1000000000;
+    int maxSum = 1000000000;
     int minNum = 0;
 
     int dp[S];
@@ -13,8 +13,8 @@ int solve(int arr[],int N,int S){
             if(dp[s-arr[i]] == 1){
                 dp[s] = 1;
                 int tmp = abs(2*s-S);
-                if(tmp < minSum){
-                    minSum = tmp;
+                if(tmp < maxSum){
+                    maxSum = tmp;
                     minNum = s;
                 }
             }
