@@ -1,0 +1,4 @@
+"dynamic programming is just brute-force with stratergy
+
+if you can brute force it, you can dp it"
+              some smart guy
