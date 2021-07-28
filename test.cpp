@@ -1,42 +1,35 @@
-#include<iostream>
-#include<cmath>
-#include<algorithm>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-struct point{
-	int x;
-	int y;
-};
+#define int long long
 
+const int max_n = 200005, mod = 1000000007;
+int dp[max_n];
 
-int areaOfTriangle(point a,point b,point c){
-	return abs((b.x-a.x)*(c.y-a.y)-(c.x-a.x)*(b.y-a.y));
-}
+signed main(){
 
-int main(){
-	int N;
-	cin >> N;
-	point arr[N];
-	int S[N][N];
-	int res = 0;
-	for(int i = 0; i < N;i++) cin >> arr[i].x >> arr[i].y;
-	for(int i = 0; i < N;i++){
-		int k = (i+3)%N;
-		for(int j = (i+2)%N; j != (i+N-1)%N;j = (j+1)%N){
-			if(j == k) k = (k+1)%N;
-			S[i][j] = areaOfTriangle(arr[i],arr[j],arr[k]);
-			while((k+1)%N != i && areaOfTriangle(arr[i],arr[j],arr[k]) <= areaOfTriangle(arr[i],arr[j],arr[(k+1)%N])){
-				k = (k+1)%N;
-				S[i][j] = areaOfTriangle(arr[i],arr[j],arr[k]);
-			}
+    for(int i=0; i<9; i++)dp[i] = 2;
+    dp[9] = 3;
+    for(int i=10; i<max_n; i++){
+        dp[i] = (dp[i-9] + dp[i-10])%mod;
+    }
 
-			if(i > j){
-				res = max(res,S[i][j]+S[j][i]);
-			}
-		}
-	}
-	cout.precision(1);
-	cout << fixed << (double)res / 2.0 << endl;
-	system("pause");
+    ios_base::sync_with_stdio(false); // very cool
+    cin.tie(NULL);
+
+    int t;
+    cin>>t;
+    while(t--){
+        int n, m;
+        cin>>n>>m;
+        int ans = 0;
+        while(n > 0){
+            int x = n%10;
+            ans += ((m + x < 10) ? 1 : dp[m + x - 10]);
+            ans %= mod;
+            n/=10;
+        }
+        cout<<ans<<"\n";
+    }
+    return 0;
 }
