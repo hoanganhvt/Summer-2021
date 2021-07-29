@@ -19,14 +19,13 @@ int main(){
         for(int d = minVal-4; d <= minVal;d++){
             int res = 0;
             for(int i = 0; i < N;i++){
-		    int x = arr[i]-d;
-		    res += x/5, x%=5;
-		    res += x/2, x%=2;
-		    res += x;
+            int x = arr[i]-d;
+            res += x/5, x%=5;
+            res += x/2, x%=2;
+            res += x;
             }
             ans = min(res,ans);
         }
         cout << ans << endl;
     }
-    system("pause");
 }
