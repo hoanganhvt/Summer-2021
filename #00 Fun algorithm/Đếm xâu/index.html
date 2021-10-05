@@ -1,0 +1,518 @@
+<div>
+	<div align="center"><span style="font-size: 18px; line-height: normal">
+			<font color="#ff0505"><strong>Tổng hợp các bài toán đếm số chuỗi với các điều kiện</strong>
+			</font>
+		</span><br><strong>Lời giải của LVĐ, NKP, HTH, AM, <font color="#0512ff">đọc lời giải bằng cách nháy vào
+				phần nền</font> tương ứng.</strong><br></div>1. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số chuỗi n bit không chứa mẫu 00:</dt>
+		<dd>
+			<div class="spoiler_content">Chuỗi dài n thỏa mãn không chứa 00 thì có một trong 2 dạng<br> * A1
+				(A không chứa mu 00)<br> * B10 (B không chứa mẫu 00)<br>Vậy có hệ thức truy
+				hồi:<br>S<sub>n</sub> = S<sub>n-1</sub> + S<sub>n-2</sub> <br>S<sub>1</sub> = 2 (0;1),
+				<br>S<sub>2</sub> = 3 (01;10;11)<br>
+			</div>
+		</dd>
+	</dl>2. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số dãy bit độ dài n có 2 bit 0 kề nhau:</dt>
+		<dd>
+			<div class="spoiler_content">Một số có 2 bít 0 kề nhau thuộc 1 trong 3 dạng<br> * A00 (A bất kì
+				dài n - 2, số trường hợp là 2<sup>n-2</sup>)<br> * B10 (B chứa 2 bít 0 liền nhau dài n -
+				2, số trường hợp là a<sub>n-2</sub>)<br> * C1 (C chứa 2 bít 0 liền nhau dài n - 1, số
+				trường hợp là a<sub>n-1</sub>)<br><br>Vậy<br>a<sub>n</sub> = a<sub>n-1</sub> +
+				a<sub>n-2</sub> + 2<sup>n-2</sup> <br>a<sub>o</sub> = 0<br>a<sub>1</sub> = 0<br></div>
+		</dd>
+	</dl>3. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;"> Tính số dãy bit độ dài n không có 2 bit 0 kề nhau:</dt>
+		<dd>
+			<div class="spoiler_content">Một dãy độ dài n không có 2 bit 0 kề nhau thì có 1 trong 2
+				dạng<br>* A10 (A có n - 2 bit và không có 2 bit 0 kề nhau)<br> * B1 (B có n - 1 bít và
+				không có 2 bit 0 kề nhau)<br><br>Vậy suy ra<br>a<sub>n</sub> = a<sub>(n - 1)</sub> +
+				a<sub>(n - 2)</sub><br>a<sub>1</sub> = 2; <br>a<sub>2</sub> = 3<br><br>Dãy này bắt đầu
+				từ a<sub>1</sub> = 2 là dãy dạng Fibonaci<br>Giải truy hồi bằng cách xét nghiệm của
+				phương trình đặc trưng<br>x<sup>2</sup> = x + 1<br>x<sub>1</sub> = (1 + √5)/2;
+				<br>x<sub>2</sub> = (1 - √5)/2<br>a<sub>n</sub> = c<sub>1</sub>.
+				x<sub>1</sub><sup>n</sup> + c<sub>2</sub>. x<sub>2</sub><sup>n</sup><br><br>Thay n = 1,
+				2 vào tìm c<sub>1</sub>, c<sub>2</sub> (Khách viếng thăm tự thực hiện)<br>
+			</div>
+		</dd>
+	</dl>4. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;"> Tính số chuỗi nhị phân độ dài n có chứa chuỗi con 01:</dt>
+		<dd>
+			<div class="spoiler_content">Đặt S<sub>n</sub> là số chuỗi nhị phân có chứa chuỗi con 01 (*) ta
+				suy ra ngay số chuỗi nhị phân không chứa chuỗi con 01 là 2<sup>n</sup>-S<sub>n</sub>
+				(**)<br>Chuỗi nhị phân có chứa chuỗi con 01, thuộc 1 trong 2 dạng:<br>Ax (A là chuỗi có
+				độ dài n - 1, A chứa chuỗi con 01, x = 0 hoặc 1) gọi số cách là S<sub>(n-1)</sub>, nhưng
+				do x có 2 trạng thái 0 và 1, nên nhớ phải nhân 2.<br>B01 (B là chuỗi có độ dài n - 2, B
+				không chứa chuỗi 01) lập luận như (**) thì B là
+				2<sup>(n-2)</sup>-S<sub>n-2</sub><br><br>Ta có hệ thức truy hồi:<br>S<sub>n</sub>=2
+				S<sub>n-1</sub> + (2<sup>(n-2)</sup>-S<sub>n-2</sub>)<br>hay S<sub>n</sub> = 2
+				S<sub>n-1</sub> - S<sub>n-2</sub> + 2<sup>(n-2)</sup><br>Giá trị khởi tạo: S<sub>1</sub>
+				= 0;S<sub>2</sub> = 1<br><br>Thực ra S<sub>n</sub> có thể tính dễ dàng không truy hồi
+				như sau:<br>Chuỗi không thỏa mãn (*) chỉ có thể có dạng: 111...111000...000 số chuỗi thế
+				này = n + 1<br>Suy ra:<br>S<sub>n</sub>=2<sup>n </sup>- (n + 1)<br></div>
+		</dd>
+	</dl>5. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số chuỗi nhị phân độ dài n có một số chẵn bit 0:</dt>
+		<dd>
+			<div class="spoiler_content">Gọi Sn là số chuỗi có số chẵn bit 0<br>Gọi Kn là số chuỗi có số lẻ
+				bít 0<br>Ta có Sn + Kn = 2<sup>n</sup><br>Một chuỗi dài n có số chẵn bit 0, được thành
+				lập bằng 2 cách<br>* Chuỗi số chẵn bít 0 có độ dài n-1, thêm 1<br>* Chuỗi số lẻ bít 0 có
+				độ dài n-1, thêm 0<br>Ta có hệ thức
+				sau:<br>Sn=S<sub>(n-1)</sub>+K<sub>(n-1)</sub><br><br>Tương tự ta có:<br>Kn =
+				S<sub>(n-1)</sub> + K<sub>(n-1)</sub><br>Suy ra: Sn = Kn<br>Hay hệ thức truy hồi là:
+				<br>Sn = 2S<sub>(n-1)</sub><br>Với giá trị khởi tạo : <br>S<sub>1</sub> = 1<br>
+			</div>
+		</dd>
+	</dl>6. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số chuỗi nhị phân độ dài n có 3 bit 0 liên tiếp:</dt>
+		<dd>
+			<div class="spoiler_content">Đặt S<sub>n</sub> là số chuỗi nhị phân độ dài n, có 3 bit 0 liên
+				tiếp:<br>Một chuỗi dài n (n&gt;3) thoả mãn điều kiện đầu bài sẽ thuộc một trong các dạng
+				sau:<br>A1 ( A là chuỗi có độ dài n -1, A chứa 3 bit 0 liên tục) , gọi số cách là
+				S<sub>(n-1)</sub><br>B10 (B là chuỗi có độ dài n - 2, B chứa 3 bít 0 liên tục), gọi số
+				cách là S<sub>(n-2)</sub><br>C100 (C là chuỗi có độ dài n - 3, C chứa 3 bít 0 liên tục,
+				gọi số cách là S<sub>(n-3)</sub><br>D000 (D là chuỗi tùy ý dài n - 3), số cách tính được
+				luôn là 2<sup>(n-3)</sup><br><br>Ta có công thức truy
+				hồi:<br>S<sub>n</sub>=S<sub>(n-1)</sub> + S<sub>(n-2) </sub>+ S<sub>(n-3)</sub> +
+				2<sup>(n-3)</sup><br>Khởi tạo: <br>S<sub>1</sub> = S<sub>2</sub> = 0; S<sub>3</sub> =
+				1.<br></div>
+		</dd>
+	</dl>7. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;"> Tính số chuỗi nhị phân độ dài n không có 3 bit 0 liên tiếp:</dt>
+		<dd>
+			<div class="spoiler_content">Đặt S<sub>n</sub> là số chuỗi nhị phân độ dài n, không có 3 bit 0
+				liên tiếp:<br>Một chuỗi dài n (n&gt;3) thoả mãn điều kiện đầu bài sẽ thuộc một trong các
+				dạng sau:<br>A1 (A là chuỗi có độ dài n - 1, không có 3 bit 0 liên tiếp), gọi số cách là
+				S<sub>(n-1)</sub><br>B10 (B là chuỗi có độ dài n - 2, không có 3 bit 0 liên tiếp), gọi
+				số cách là S<sub>(n-2)</sub><br>C100 (C là chuỗi có độ dài n - 3, không có 3 bit 0 liên
+				tiếp), gọi số cách là S<sub>(n-3)</sub><br><br>Nên ta có hệ thức truy
+				hồi:<br>S<sub>n</sub>=S<sub>n-1</sub> + S<sub>n-2</sub> + S<sub>n-3 </sub><br>Khởi tạo:
+				S<sub>1</sub> = 2, S<sub>2</sub> = 4, S<sub>3</sub> = 7<br></div>
+		</dd>
+	</dl>8. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số xâu nhị phân có độ dài 8 và có đúng 2 cặp 01:</dt>
+		<dd>
+			<div class="spoiler_content hidden">Đây không phải là lời giải, mà đây chỉ là <font color="red">
+					<strong>bình giảng lời giải</strong>
+				</font>.<br>Cách giải của thầy đưa ra rất
+				hay, khi viết chuỗi cần tìm có dạng:<br><br>
+				<div align="center"><span style="color:#f00">[You must be <p>
+							<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st
+								mới xem được nội dung ! <a class="bvmedia"
+									href="/profile.forum?mode=register">Click vào
+									đây để đăng ký thành viên </a> hoặc <a
+									class="bvmedia"
+									href="https://khmt.123.st/login">Đăng nhập</a> !
+							</font>
+						</p> and <p>
+							<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st
+								mới xem được nội dung ! <a class="bvmedia"
+									href="/profile.forum?mode=register">Click vào
+									đây để đăng ký thành viên </a> hoặc <a
+									class="bvmedia"
+									href="https://khmt.123.st/login">Đăng nhập</a> !
+							</font>
+						</p> to see this image.]</span><br></div>Trong đó:<br>x<sub>1</sub> là
+				<font color="red"><strong>số lượng</strong></font> các <font color="blue"><strong>con số
+						1</strong></font>.<br>x<sub>2</sub> là <font color="red"><strong>số
+						lượng</strong></font> các <font color="blue"><strong>con số 0</strong>
+				</font>.<br>x<sub>3</sub> là <font color="red"><strong>số lượng</strong></font> các
+				<font color="blue"><strong>con số 1</strong></font>.<br>x<sub>4</sub> là <font
+					color="red"><strong>số lượng</strong></font> các <font color="blue"><strong>con
+						số 0</strong></font>.<br>x<sub>5</sub> là <font color="red"><strong>số
+						lượng</strong></font> các <font color="blue"><strong>con số 1</strong>
+				</font>.<br>x<sub>6</sub> là <font color="red"><strong>số lượng</strong></font> các
+				<font color="blue"><strong>con số 0</strong></font>.<br>Giáp ranh của
+				x<sub>2</sub>x<sub>3</sub> với x<sub>4</sub>x<sub>5</sub> đã tạo ra 2 cặp số <font
+					color="red"><strong>01</strong></font> rồi. Nên x<sub>1</sub>có thể thêm tuỳ ý
+				số lượng số 1 miễn là thoả mãn điều kiện đầu bài về chiều dài xâu, mà không thể tạo ra
+				được cặp <font color="blue"><strong>01</strong></font> mới.Tương tự lập luận cho các
+				biến khác.<br>Theo điều kiện đầu bài, số lượng các con số của xâu 8 ký tự, nên ta
+				có:<br>x<sub>1</sub> + x<sub>2</sub> + x<sub>3</sub> + x<sub>4</sub> + x<sub>5</sub> +
+				x<sub>6</sub> = 8<br>Trong đó các con số tao lập nên 2 cặp 01 bắt buộc phải có, nghĩa là
+				x<sub>2</sub>, x<sub>3</sub>, x<sub>4</sub>, x<sub>5</sub> tối thiểu phải 1 lần nên các
+				điều kiện đầu tiên là:<br>x<sub>2</sub> ≥ 1<br>x<sub>3</sub> ≥ 1<br>x<sub>4</sub> ≥
+				1<br>x<sub>5</sub> ≥ 1<br><br>Còn số lượng các con số x<sub>1</sub> và x<sub>6</sub> có
+				thể không có cũng chẳng sao, nên điều kiện 2 là:<br>x<sub>1</sub> ≥ 0<br>x<sub>6</sub> ≥
+				0<br><br>Từ đây ta sẽ đưa về <font color="red"><strong><span style="color:#f00">[You
+							must be <p>
+								<font color="red">[ Chỉ thành viên diễn đàn
+									https://khmt.123.st mới xem được nội dung ! <a
+										class="bvmedia"
+										href="/profile.forum?mode=register">Click
+										vào đây để đăng ký thành viên </a> hoặc
+									<a class="bvmedia"
+										href="https://khmt.123.st/login">Đăng
+										nhập</a> !
+								</font>
+							</p> and <p>
+								<font color="red">[ Chỉ thành viên diễn đàn
+									https://khmt.123.st mới xem được nội dung ! <a
+										class="bvmedia"
+										href="/profile.forum?mode=register">Click
+										vào đây để đăng ký thành viên </a> hoặc
+									<a class="bvmedia"
+										href="https://khmt.123.st/login">Đăng
+										nhập</a> !
+								</font>
+							</p> to see this link.]</span></strong></font> để giải.<br>Vấn
+				đề giải bài toán cơ bản này các đồng chí có thể xem lại bằng cách nháy vào link
+				trên.<br>Nghĩa là số cách có thể thành lập được xâu nhị phân có độ dài 8 và có đúng 2
+				cặp 01 là nghiệm của phương trình:<br>x<sub>1</sub> + x<sub>2</sub>+ x<sub>3</sub> +
+				x<sub>4</sub> + x<sub>5 </sub>+ x<sub>6</sub> = 8<br>với điều kiện:<br>x<sub>2</sub> ≥
+				1<br>x<sub>3</sub> ≥ 1<br>x<sub>4</sub> ≥ 1<br>x<sub>5</sub> ≥ 1<br>x<sub>1</sub> ≥
+				0<br>x<sub>6</sub> ≥ 0<br>
+			</div>
+		</dd>
+	</dl>9. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số xâu nhị phân có độ dài n chứa hai số 0 liên tiếp và hai số 1 liên
+			tiếp:</dt>
+		<dd>
+			<div class="spoiler_content">Trước hết ta tìm số xâu nhị phân có độ dài n chứa hai số 0 liên
+				tiếp:<br>Gọi K<sub>n</sub> là số xâu nhị phân có độ dài n chứa hai số 0 liên tiếp. Ta có
+				các trường hợp xảy ra:<br>− Số thứ n bằng 1. Số xâu thỏa mãn là K<sub>n-1<br></sub>− Số
+				thứ n bằng 0. Ta xét tiếp:<br> Số thứ n-1 bằng 1 thì số xâu thỏa mãn là
+				K<sub>n-2<br></sub> Số thứ n-1 bằng 0 thì số xâu thỏa mãn là 2<sup>n-2</sup><br>Vậy
+				K<sub>n</sub> = K<sub>n-1</sub> + K<sub>n-2</sub> + 2<sup>n-2</sup> <br>Với điều kiện
+				ban đầu K<sub>1</sub> = 0; K<sub>2</sub> = 1.<br>Bằng cách chứng minh tương tự, ta có số
+				xâu nhị phân có độ dài n chứa hai số 1 liên tiếp cũng là:<br>K<sub>n</sub> =
+				K<sub>n-1</sub> + K<sub>n-2</sub> + 2<sup>n-2</sup> <br>Với điều kiện ban đầu
+				K<sub>1</sub> = 0; K<sub>2</sub> = 1.<br>Bây giờ, ta gọi số xâu nhị phân có độ dài n
+				chứa hai số 0 liên tiếp và hai số 1 liên tiếp là S<sub>n</sub>, ta có các khả năng xảy
+				ra:<br>− Hai số cuối là 00. Số xâu nhị phân thỏa mãn chính bằng số xâu nhị phân có độ
+				dài n-2 chứa hai số 1 liên tiếp và bằng K<sub>n-2</sub>.<br>− Hai số cuối là 11. Số xâu
+				nhị phân thỏa mãn chính bằng số xâu nhị phân có độ dài n-2 chứa hai số 0 liên tiếp và
+				bằng K<sub>n-2</sub>.<br>− Trường hợp còn lại. Số xâu nhị phân thỏa mãn bằng
+				S<sub>n-1</sub>.<br><br>Vậy số xâu nhị phân có độ dài n chứa hai số 0 liên tiếp và hai
+				số 1 liên tiếp cho bởi công thức:<br>S<sub>n</sub> = S<sub>n-1</sub> + 2K<sub>n-2</sub>
+				với điều kiện ban đầu là K<sub>1</sub> = K<sub>2</sub> = K<sub>3</sub> = 0.<br></div>
+		</dd>
+	</dl>10. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số xâu nhị phân có độ dài 8 và có đúng 1 cặp 00:</dt>
+		<dd>
+			<div class="spoiler_content">Xét xâu nhị phân có độ dài 7, sao cho có ít nhất 1 số 0 và không có
+				2 số 0 nào cạnh nhau, do đó số số không trong xâu lớn nhất sẽ là 4 (nó không được lớn
+				hơn số số 1 cộng 1).<br> - Với xâu có 1 số 0; 6 số 1: có <span style="color:#f00">[You
+					must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br> - Với xâu có 2 số 0; 5 số 1: có <span
+					style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br> - Với xâu có 3 số 0; 4 số 1: có <span
+					style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br> - Với xâu có 4 số 0; 3 số 1: có <span
+					style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>Để thỏa mãn yêu cầu của bài toán, tức là
+				chỉ có đúng một cặp 00 trong xâu nhị phân có độ dài là 8, ta chỉ cần thêm 1 số 0 vào xâu
+				nhị phân có độ dài là 7 như trên ta đã xét, sao cho số 0 mới thêm nằm cạnh với số 0 đã
+				có trong xâu (đặt trước hay sau thì cũng chỉ là một cách). Với xâu có bao nhiêu số 0 thì
+				có bấy nhiêu cách để thêm sô 0. <br><br>Vậy đáp án là: <br> <span
+					style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>Còn công thức tổng quát với xâu có độ dài
+				là n thì có lẽ là<br><br> <span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br>Nếu nó đã thành cặp 00 rồi thì sao? Ta thêm
+				số 0 nữa cho đủ độ dài 8, thì không thoả mãn đầu bài có <font color="red"><strong>đúng 1
+						cặp 00</strong></font><br><strong>
+					<font color="#ff0000">- </font>
+				</strong>Khách viếng thăm<strong>
+					<font color="#ff0000"> tưởng tượng như thế này nhé. Giả sử </font>
+				</strong>Khách viếng thăm<strong>
+					<font color="#ff0000"> có một xâu thỏa mãn yêu cầu, tức là xâu có độ dài 8 chỉ
+						có đúng 1 cặp 00. </font>
+				</strong>Khách viếng thăm<strong>
+					<font color="#ff0000"> xóa béng một số 0 trong cặp đó, lúc này xâu nhị phân sẽ
+						có độ dài là 7, và không có bất cứ cặp 00 nào. Nhớ là xâu có độ dài 7
+						không có bất cứ cặp 00 nào nhé. Công việc của </font>
+				</strong>Khách viếng thăm<strong>
+					<font color="#ff0000"> là làm ngược lại. Tìm tất cả các trường hợp có độ dài là
+						7, không có 2 số 0 đứng cạnh nhau. Sau đó thêm 1 số 0 vào cạnh số 0
+						trong xâu có độ dài 7.</font>
+				</strong><br>Ví dụ: xâu có độ dài 7: 0110101<br>Như vậy ta sẽ có 3 cách thêm (tương ứng
+				với số số 0 trong xâu, thêm trước hay sau số 0 đó đều như nhau) như sau:<br>
+				<font color="red"><strong>0</strong></font>0110101 (hoặc 0<font color="red">
+					<strong>0</strong>
+				</font>110101)<br>011<font color="red"><strong>0</strong>
+				</font>0101 (hoặc 0110<font color="red"><strong>0</strong></font>101) <br>01101<font
+					color="red"><strong>0</strong></font>01 (hoặc 011010<font color="red">
+					<strong>0</strong>
+				</font>1)<br>- Còn trường hợp tính : Với xâu có 2 số 0; 5 số
+				1; Với xâu có 3 số 0; 4 số 1; Với xâu có 4 số 0; 3 số 1. Khách viếng thăm hãy xem lại
+				<span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this link.]</span>, nó không được bò dọc liên tiếp, cũng như việc 2
+				số 0 không đứng cạnh nhau.<br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>= <strong>7 + 30 + 15 + 4 = <font
+						color="red">56</font></strong><br>
+			</div>
+		</dd>
+	</dl>11. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính xâu có độ dài n mà các số 0 và 1 đứng xen nhau (cả 0 đứng trước và cả
+			1 đứng trước):</dt>
+		<dd>
+			<div class="spoiler_content"><br>TH1: 0 đứng trước. mỗi cách xếp sẽ có dạng: 0101....01. Mỗi
+				cách sắp xếp 0 vào n vị trí này là một hoán vị không lặp của n, tương tự mỗi cách sắp
+				xếp 1 vào n vị trí trong dãy là một hoán vị không lặp của n → số cách sắp xếp là: n!
+				n!<br>TH2: 1 đứng trước. Lập luận tương tự ta cũng có số cách sắp như trên.<br>Vậy đáp
+				số của bài toán là: 2 n!n!<br></div>
+		</dd>
+	</dl>12. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Có bao nhiêu xâu nhị phân chứa đúng 5 số 0 và mười bốn số 1 và ngay sau mỗi
+			số 0 nhất thiết là hai số 1?:</dt>
+		<dd>
+			<div class="spoiler_content"> Mỗi xâu nhị phân theo đầu bài chứa 5 cặp 011 và 4 số 1 đứng xen kẽ
+				bất kì. <br>Nếu coi:<br>- Mỗi cặp 011 là một phần tử: Phần tử A → Vì đề bài yêu cầu 5
+				cặp số 011 → Có 5 phần tử A<br>- Mỗi số 1 cũng là một phần tử: Phần tử B → Vì đề bài đã
+				cho có 14 chữ số 1 (Trừ đi 10 chữ số 1 nằm trong 5 phần tử A rồi) nên phần tử B còn 4
+				chữ số 1.<br><br>Thì trong một cách xếp xâu nhị phân có tất cả 9 phần tử. Như vậy mỗi
+				cách xếp xâu nhị phân thỏa măn điều kiện bài toán là một hoán vị có lặp của 9 phần tử
+				trong đó có 5 phần tử A và 4 phần tử B. <font color="red">Hay nói cách khác là tổ hợp
+					chập 5 của 9 phần tử</font>, Vậy số xâu nhị phân thỏa mãn điều kiện bài toán
+				là<br><br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br></div>
+		</dd>
+	</dl>13. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Tính số chuỗi ký tự gồm A, B, C có độ dài n chứa hai kí tự liên tiếp giống
+			nhau:</dt>
+		<dd>
+			<div class="spoiler_content"> Gọi S<sub>n</sub> là số chuỗi thỏa mãn: Có chưa 2 kí tự liên tiếp
+				giống nhau (*) thì số chuỗi không thỏa mãn (*) là 3<sup>n</sup> - S<sub>n</sub>
+				<br>Chuỗi thỏa mãn có 1 trong 2 dạng:<br><br> * Mx (M thỏa (*), x có 3 cách)<br> * Nxx
+				(Nx không thỏa (*))<br><br> → S<sub>n</sub> = 3 S<sub>n</sub> - 1 + (3<sup>n-1</sup> -
+				S<sub>n</sub> - 1) = 2 S<sub>n</sub> - 1 + 3<sup>n-1</sup> <br><br>Khởi tạo:
+				S<sub>1</sub> = 0, <br>S<sub>2</sub> = 3<br><br>Có thể giải không truy hồi như
+				sau:<br>Đầu tiên tìm số chuỗi không có 2 kí tự liên tiếp bằng nhau:<br>Chọn kí tự đầu
+				tiên có 3 cách, kí tự tiếp theo có 2 cách (Trừ kí tự trước nó)<br>Vậy tất cả có: 3.
+				2<sup>n-1</sup> cách<br> → S<sub>n</sub> = 3<sup>n</sup> - 3. 2<sup>n-1</sup> <br>
+			</div>
+		</dd>
+	</dl>14. <dl class="codebox spoiler">
+		<dt style="cursor: pointer;">Có bao nhiêu xâu 20 chữ số của hệ thập phân chứa đúng 2 số 0, bốn chữ số 1,
+			ba chữ số 2, một chữ số 3, hai chữ số 4, ba chữ số 5, hai chữ số 7 và 3 chữ số 9?:</dt>
+		<dd>
+			<div class="spoiler_content">Xét tất cả các trường hợp (kể cả số 0 đứng đầu xâu) 20 chữ số thì
+				mỗi cách sắp xếp xâu 20 chữ số thì:<br>- Tổng số: 20 vị trí. → n = 20<br>Trong đó:<br>-
+				2 vị trí chứa số 0 → k<sub>1</sub> = 2<br>- 4 vị trí chứa số 1 → k<sub>2</sub> = 4<br>-
+				3 vị trí chứa số 2 → k<sub>3</sub> = 3<br>- 1 vị trí chứa số 3 → k<sub>4</sub> = 1<br>-
+				2 vị trí chứa số 4 → k<sub>5</sub> = 2<br>- 3 vị trí chứa số 5 → k<sub>6</sub> = 3<br>-
+				2 vị trí chứa số 7 → k<sub>7</sub> = 2<br>- 3 vị trí chứa số 9 → k<sub>8</sub> =
+				3<br><br> Là một hoán vị có lặp của 20 phần tử gồm các phần tử nêu trên. Vậy số cách sắp
+				xếp xâu 20 chữ số, theo công thức tính ta có:<br><br><span style="color:#f00">[You must
+					be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>Nhưng vì xâu 20 chữ số ở dạng thập phân,
+				nên những xâu có số 0 ở đầu xâu vô nghĩa (do bỏ đi thì xâu không đủ 20 chữ số) phải trừ
+				ra. Để đếm số trường hợp phải trừ ra này thì xét trường hợp xâu có số 0 đứng đầu.
+				<br>Giống như xét trong 19 vị trí còn lại, ta có:<br>- Tổng số có 19 vị trí → n =
+				19<br>- 1 vị trí chứa số 0 → k<sub>1</sub> =1<br>- 4 vị trí chứa số 1 → k<sub>2</sub> =
+				4<br>- 3 vị trí chứa số 2 → k<sub>3</sub> = 3<br>- 1 vị trí chứa số 3 → k<sub>4</sub> =
+				1<br>- 2 vị trí chứa số 4 → k<sub>5</sub> = 2<br>- 3 vị trí chứa số 5 → k<sub>6</sub> =
+				3<br>- 2 vị trí chứa số 7 → k<sub>7</sub> = 2<br>- 3 vị trí chứa số 9 → k<sub>8</sub> =
+				3<br><br>Vậy số trường hợp phải loại với 1 số 0 đứng đầu là:<br><br><span
+					style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>nhưng trong 19 chữ số của X<sub>1</sub>
+				trên vẫn còn trường hợp số 0 đứng đầu. (Xét về tổng quát thì phải trừ đi tiếp, nghĩa là
+				phải trừ tiếp trường hợp X có 2 số 0 đứng đầu.<br>Ta lại xét tương tự trong 198 vị trí
+				còn lại, ta có:<br>- Tổng số có 18 vị trí → n = 18<br>- 4 vị trí chứa số 1 →
+				k<sub>1</sub> = 4<br>- 3 vị trí chứa số 2 → k<sub>2</sub> = 3<br>- 1 vị trí chứa số 3 →
+				k<sub>3</sub> = 1<br>- 2 vị trí chứa số 4 → k<sub>4</sub> = 2<br>- 3 vị trí chứa số 5 →
+				k<sub>5</sub> = 3<br>- 2 vị trí chứa số 7 → k<sub>6</sub> = 2<br>- 3 vị trí chứa số 9 →
+				k<sub>7</sub> = 3<br><br>Ta có công thức:<br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>Số xâu 20 chữ số hệ thập phân thỏa mãn đk
+				đầu bài là: <br><br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br>Ta có:<br><span style="color:#f00">[You must
+					be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br><br>Do 20! = 18! * 19 * 20 nên → X = 19 * 20
+				* X<sub>2 </sub>/ 2!<br>Do 19! = 18! * 19 nên → X<sub>1</sub> = 2 * 19 * 20 *
+				X<sub>2</sub><br>Vậy kết quả:<br>KQ = 19 * 10 * X<sub>2</sub> - 19 * X<sub>2</sub> -
+				X2<br>KQ = X<sub>2</sub>( 19 * 10 - 19 - 1) = 170 * X<sub>2</sub><br><br>Thay
+				số:<br><span style="color:#f00">[You must be <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> and <p>
+						<font color="red">[ Chỉ thành viên diễn đàn https://khmt.123.st mới xem
+							được nội dung ! <a class="bvmedia"
+								href="/profile.forum?mode=register">Click vào đây để
+								đăng ký thành viên </a> hoặc <a class="bvmedia"
+								href="https://khmt.123.st/login">Đăng nhập</a> !</font>
+					</p> to see this image.]</span><br>
+			</div>
+		</dd>
+	</dl>
+</div>
