@@ -1,0 +1,2 @@
+cin.tie(null) make things faster
+memset cant set the value different from 0 to all the array

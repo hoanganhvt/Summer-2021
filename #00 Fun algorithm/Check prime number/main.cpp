@@ -30,23 +30,21 @@ bool littlebitCoolerIsPrime(int n){
 
 //kiểm tra n có chia hết cho 2 3 hoặc các số có dạng 6k+(-)1 trong đoạn 5 đến sqrt(n)
 
-bool coolerIsPrime(int n){
-	if(n%2 == 0 || n%3 == 0){
-		return false;
-	}
-	if(n == 2 || n == 3){
-		return true;
-	} 
-	int k = -1;
-	while(k <= sqrt(n)){
-		k += 6;
-		if(n % k == 0 || n%k+2 == 0){
-			return false;
-		}
-	}
-	return true;
+int isPrime(int n){
+        // code here
+        if(n == 2 || n == 3){
+            return true;
+        }
+        if(n == 1 || (n % 2 == 0 || n % 3 == 0)){
+            return false;
+        }
+        for(int k = 1; 6*k+1 <= sqrt(n);k++){
+            if(n % (6*k+1) == 0 || n % (6*k-1) == 0){
+                return false;
+            }
+        }
+        return true;
 }
-
 //Định lý nhỏ fermat: nếu p là số nguyên tố và a là số tự nhiên thì a^p mod p = a
 int main(){
 
