@@ -2,3 +2,5 @@
 
 if you can brute force it, you can dp it"
               some smart guy
+
+min(a,b) = abs(max(-a,-b))
