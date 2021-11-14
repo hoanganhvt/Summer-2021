@@ -69,5 +69,4 @@ int main(){
 	}
 	Dijkstra(1);
 	cout << L[N] << " " << cnt[N] << endl;
-	system("pause");
 }
