@@ -37,5 +37,4 @@ int main(){
 		realRes += res;
 	}
 	cout << realRes;
-	system("pause");
 }
